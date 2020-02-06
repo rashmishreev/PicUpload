@@ -1,14 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-title>snappic</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
-</ion-content>
+
+  <ion-content>
+    <div *ngIf="successMsg">
+      <ion-label>{{successMsg}}</ion-label>
+    </div>
+    <div *ngIf="downloadedImage">
+      <img  [src]="downloadedImage" alt="Select Image" width="500" height="400">
+    </div>
+    
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button (click)="takePicture()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
+
+
